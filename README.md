@@ -14,7 +14,9 @@ and supersonic conditions, we can use the simulator as part of the design iterat
 * 8 GB RAM
 
 ## Getting Started
-
+```
+git clone --recurse-submodules /this/repository/address
+```
 
 ## Contribute
 * See Issues page, and Projects page of this repositroy for tasks to do
