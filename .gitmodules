@@ -1,5 +1,5 @@
 [submodule "px4"]
-	path = px4
+	path = src/px4
 	url = git@github.com:theprojectboom/px4.git
 [submodule "engine"]
 	path = src/fdm/engine
