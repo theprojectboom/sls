@@ -15,7 +15,7 @@ and supersonic conditions, we can use the simulator as part of the design iterat
 
 ## Getting Started
 ```
-git clone --recurse-submodules /this/repository/address
+git clone --recurse-submodules https://github.com/theprojectboom/sls
 ```
 
 ## Contribute
