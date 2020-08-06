@@ -1,3 +1,6 @@
 [submodule "px4"]
 	path = px4
 	url = git@github.com:theprojectboom/px4.git
+[submodule "engine"]
+	path = engine
+	url = git@github.com:theprojectboom/engine.git
