@@ -1,0 +1,34 @@
+
+FROM ...ubuntu:16.04
+MAINTAINER
+
+# This engine will be built once (or infrequently) as the easy-deploy, standard plysics engine.
+# (Or in FlightGear terms, Flight Dynamics Model (FDM)).
+
+### ./build.sh
+# mkdir /opt/jsbsim-code
+# cp -r v/* /opt/jsbsim-code/
+# du -sch /opt/jsbsim-code/
+# pushd /opt/jsbsim-code/
+
+# mkdir build
+# cd build/
+# apt update
+# apt install -y --no-install-recommends make cmake clang
+# cmake ..
+# make
+### apt uninstall make cmake clang ?
+## apt...cleanup, rm .../apt/lists/
+
+ls src/JSBSim
+
+# /opt/jsbsim-code/build/; cmake ..; make
+# /opt/jsbsim-code/build/src/JSBSim
+
+### ./run.sh
+## volumes?? plugins?
+# ports?
+# RUN /opt/jsbsim/build/src/JSBSim
+
+# ln -s /opt/jsbsim/build/src/JSBSim /opt/bin/JSBSim
+CMD /opt/jsbsim/bin/JSBSim

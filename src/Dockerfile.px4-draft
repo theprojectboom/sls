@@ -1,0 +1,24 @@
+
+### ./build.sh
+# cd /4src/px4/
+# find / -name px4
+# find / -maxdepth 7 -name Firmware
+# ctest -j
+
+# apt install python3-venv
+# python3 -m venv venv
+# . venv/bin/activate
+# pip install jsbsim --no-index -f https://github.com/JSBSim-Team/jsbsim/releases/download/Rolling-release-v2019/JSBSim-1.1.0.dev1-cp38-cp38m-manylinux1_x86_64.whl
+# python3 -m pip install python3.7
+
+# make px4_sitl
+# vi Tools/flightgear_bridge/FG_run.py # editing out of any actual running. Non-default use
+
+### ./run.sh
+# make px4_sitl flightgear_rascal
+# make list_config_targets
+
+RUN # do-it.sh
+
+cd .../src/px4/
+make px4_sitl_nolockstep flightgear_rascal
