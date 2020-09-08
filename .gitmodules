@@ -1,6 +1,6 @@
 [submodule "px4"]
 	path = src/px4
-	url = git@github.com:theprojectboom/px4.git
+	url = https://github.com/theprojectboom/px4.git
 [submodule "engine"]
 	path = src/fdm/engine
-	url = git@github.com:theprojectboom/engine.git
+	url = https://github.com/theprojectboom/engine.git
