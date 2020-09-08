@@ -40,38 +40,36 @@ Px4 and JSBSim, and proxy data and report differents to QGroundControl, or an au
 
 ### Applications
 * Docker daemon, to run
-  * theprojectboom/px4 (avionics software, focus of development work)
-  * theprojectboom/fdm (JSBSim)
-* QGroundControl (for control commands during test & flight)
+  * theprojectboom/px4
+* QGroundControl
 * FlightGear (for visualization)
 
 ## Getting Started
 ### Downloads (hurry up & wait)
 ```
-git clone --recurse-submodules https://github.com/theprojectboom/sls  # 1 GB. px4 has 13+ submodules
+git clone --recurse-submodules https://github.com/theprojectboom/sls  # 1 GB. half .git & half px4, with 13+ submodules
 docker pull theprojectboom/px4:latest  # 3 GB
-docker pull theprojectboom/fdm:latest  # 0.5 GB
 ```
 
 ### Running
 #### Px4
 This component, the Flight Controller, is the main focus of our development work.
 ```
-docker run --name boom-px4 --volume ...:/opt/px4 -p ...:... -p : -p :  theprojectboom/px4:latest bash
 docker run --name boom-px4 --volume `pwd`/.:/opt/boom-sls -p 14570:18570/udp -p 14580:14580/udp -p 4560:4560/udp -p 4560:4560 theprojectboom/px4:latest
 ```
 * NOTE: `docker run -v hostPath:containerPath [...]` - the hostPath must be an absolute path, i.e.
   starting with `/`.
+
 ##### JSBSim
 I've included a JSBSim executable in the container at `/opt/JSBSim`
 If we need to customize the FDM, mount-build-run instructions will be updated here.
+
 #### QGroundControl
 Download, install, and run [QGroundControl](http://qgroundcontrol.com/).
-#### FlightGear
 
+#### FlightGear
 Need to configure to run with external FDM (Flight Dynamics Model).
 Port 5500, default for communication.
-
 
 ### About docker
 Docker runs containers, a kind of lightweight virtual machine on your computer. The containers allow
