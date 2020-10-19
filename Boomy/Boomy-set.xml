@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+Project Boom B400 Version 10 Vehicle
+************************************************************************
+-->
+
+<PropertyList>
+
+ <sim>
+  <description>Project Boom-Phase 1 Vehicle "Boomy"</description>
+  <long-description>With over 180 students representing 70+ universities
+  in 19 countries on 5 continents, Project Boom was created with the goal
+  of being the first student group to reach speeds in excess of Mach 1 
+  with a remote-controlled aircraft.</long-description>
+  <aircraft-version>B400_10</aircraft-version>
+  <author>Rohan Potdar(initial)</author>
+  <status>early-production</status>
+  <previews>
+  <preview>
+    <type>exterior</type>
+    <splash type="bool">true</splash>
+    <path>Exterior.png</path>
+  </preview>
+  </previews>
+
+  <flight-model>jsb</flight-model>
+  <aero>Boomy-fdm</aero>
+
+  <allow-toggle-cockpit>true</allow-toggle-cockpit>
+
+  <!-- hide the 2D panel -->
+
+  <virtual-cockpit archive="y">true</virtual-cockpit>        <!-- no clue what this does -->
+        <panel>
+            <visibility archive="y">false</visibility>
+        </panel>
+
+  <!-- position the pilot viewpoint and angle -->
+
+  <view>
+   <internal>true</internal>
+   <config>
+    <x-offset-m>-0.25</x-offset-m>
+    <y-offset-m>0.20</y-offset-m>
+    <z-offset-m>0.66</z-offset-m>
+    <pitch-offset-deg>-13</pitch-offset-deg>
+   </config>
+  </view>
+
+  <model>
+   <path>Aircraft/Boomy/Models/Boomy.xml</path>
+  </model>
+
+  <help>
+    <line>TODO: Write help instructions</line>
+  </help>
+  
+  <fdm>
+        <jsbsim>
+            <fcs>
+                <max-alpha-deg type="int">34</max-alpha-deg>
+                <max-alpha-default-deg type="int">34</max-alpha-default-deg>
+            </fcs>
+        </jsbsim>
+    </fdm>
+
+ </sim>
+
+ <consumables>
+  <fuel>
+   <tank n="0">
+    <level-gal_us>20</level-gal_us>
+   </tank>
+  </fuel>
+ </consumables>
+
+ <instrumentation>
+  <attitude-indicator>
+   <config>
+    <tumble-flag archive="y" type="bool">true</tumble-flag>
+   </config>
+  </attitude-indicator>
+ </instrumentation>
+
+ <controls>
+  <engines>
+   <engine n="0">
+    <magnetos>3</magnetos>
+   </engine>
+  </engines>
+ </controls>
+
+ <engines>
+  <engine>
+   <rpm type="double">700</rpm>
+  </engine>
+ </engines>
+  
+ <nasal>
+  <electrical>
+   <file>Aircraft/Boomy/Boomy-electrical.nas</file>
+  </electrical>
+ </nasal>
+
+</PropertyList>

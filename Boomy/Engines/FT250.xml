@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+    File:     ft_250.xml
+    Author:   Simulation Team
+    Inputs:
+        name:           ft_250
+        type:           turbine
+        thrust:         240 N
+        augmented?      no
+        injected?       no
+-->
+
+<turbine_engine name="ft_250">
+  <milthrust unit="{N}"> {250} </milthrust>
+  <bypassratio>     0.0 </bypassratio>
+  <tsfc>            0.74 </tsfc>
+  <atsfc>           2.05 </atsfc>
+  <idlen1>         40.0 </idlen1>
+  <idlen2>         53.0 </idlen2>
+  <maxn1>         100.0 </maxn1>
+  <maxn2>         100.0 </maxn2>
+  <injected>          0 </injected>
+
+  <function name="IdleThrust">
+   <table>
+    <independentVar lookup="row">velocities/mach</independentVar>
+    <independentVar lookup="column">atmosphere/density-altitude</independentVar>
+    <tableData>
+            0     1000    2000    3000    4000    5000  
+     0.0  0.0320  0.0320  0.0320  0.0320  0.0320  0.0320
+     0.2  0.0320  0.0320  0.0320  0.0320  0.0320  0.0320
+     0.4  0.0320  0.0320  0.0320  0.0320  0.0320  0.0320
+     0.6  0.0320  0.0320  0.0320  0.0320  0.0320  0.0320
+     0.8  0.0320  0.0320  0.0320  0.0320  0.0320  0.0320
+     1.0  0.0320  0.0320  0.0320  0.0320  0.0320  0.0320
+    </tableData>
+   </table>
+  </function>
+
+  <function name="MilThrust">
+   <table>
+    <independentVar lookup="row">velocities/mach</independentVar>
+    <independentVar lookup="column">atmosphere/density-altitude</independentVar>
+    <tableData>
+            0     1000    2000    3000    4000    5000  
+     0.0  001.00  000.88  000.80  000.72  000.64  000.56
+     0.2  000.88  000.80  000.72  000.64  000.56  000.56
+     0.4  000.88  000.88  000.72  000.64  000.56  000.56
+     0.6  000.88  000.80  000.80  000.72  000.64  000.56
+     0.8  000.96  000.96  000.88  000.80  000.72  000.64
+     1.0  001.20  001.12  000.96  000.88  000.80  000.80
+     1.2  001.36  001.28  001.20  001.04  000.96  000.88
+    </tableData>
+   </table>
+  </function>
+
+</turbine_engine>
