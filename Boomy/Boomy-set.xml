@@ -1,106 +1,213 @@
 <?xml version="1.0"?>
-<!--
-************************************************************************
-Project Boom B400 Version 10 Vehicle
-************************************************************************
--->
 
 <PropertyList>
-
- <sim>
-  <description>Project Boom-Phase 1 Vehicle "Boomy"</description>
-  <long-description>With over 180 students representing 70+ universities
-  in 19 countries on 5 continents, Project Boom was created with the goal
-  of being the first student group to reach speeds in excess of Mach 1 
-  with a remote-controlled aircraft.</long-description>
-  <aircraft-version>B400_10</aircraft-version>
-  <author>Rohan Potdar(initial)</author>
-  <status>early-production</status>
-  <previews>
-  <preview>
-    <type>exterior</type>
-    <splash type="bool">true</splash>
-    <path>Exterior.png</path>
-  </preview>
-  </previews>
-
-  <flight-model>jsb</flight-model>
-  <aero>Boomy-fdm</aero>
-
-  <allow-toggle-cockpit>true</allow-toggle-cockpit>
-
-  <!-- hide the 2D panel -->
-
-  <virtual-cockpit archive="y">true</virtual-cockpit>        <!-- no clue what this does -->
+	<sim>
+		<description> Project Boom Aircraft </description>
+		<long-description> With over 180 students representing 70+ universities in 19 countries on 5 continents,
+		Project Boom was created with the goal of being the first student group to reach speeds in excess of Mach 1
+		with a remote-controlled aircraft. </long-description>
+		<author> Project Boom Avionics-SLS Team: Frank Spicuzza (JSBSim Model), Rohan Potdar (FlightGear Visualization) </author>
+		<status>early-production</status>
+		<date>21 October 2020</date>
+		
+		<previews>
+		  <preview>
+			<type>exterior</type>
+			<splash type="bool">true</splash>
+			<path>Exterior.png</path>
+		  </preview>
+		</previews>
+		
+		<flight-model>jsb</flight-model>
+		<aero>Boomy-fdm</aero> <!-- TODO: Create the fdm file -->
+		
+		<!-- TODO: No clue what any of these cockpit and panel instructions do; mess around with them later -->
+		<allow-toggle-cockpit type="bool">true</allow-toggle-cockpit>
+		<virtual-cockpit archive="y">true</virtual-cockpit>
         <panel>
-            <visibility archive="y">false</visibility>
-        </panel>
+			<visibility archive="y">false</visibility>
+		</panel>
+		
+		<!-- Copy of Generic Flight Recorder with one engine, one fuel tank, and 3 retractable gears -->
+		<flight-recorder include="Systems/flightrecorder.xml"/>
 
-  <!-- position the pilot viewpoint and angle -->
+		<!-- TODO: position the pilot viewpoint and angle -->
+		<view>
+			<internal>false</internal>
+			<config>
+				<x-offset-m archive="y">-0.25</x-offset-m>
+				<y-offset-m archive="y">0.20</y-offset-m>
+				<z-offset-m archive="y">0.66</z-offset-m>
+				<pitch-offset-deg>-13</pitch-offset-deg>
+			</config>
+		</view>
+		
+		<!-- TODO: Make Boomy.xml model -->
+		<model>
+			<path>Aircraft/Boomy/Models/Boomy.xml</path>
+		</model>
+		
+		<sound> <!-- Ask Colin for recordings of K70 maybe? lol -->
+			<path>Aircraft/JA37/Systems/ja37-sound.xml</path>
+		</sound>
+		
+<!--**********************************************************************
 
-  <view>
-   <internal>true</internal>
-   <config>
-    <x-offset-m>-0.25</x-offset-m>
-    <y-offset-m>0.20</y-offset-m>
-    <z-offset-m>0.66</z-offset-m>
-    <pitch-offset-deg>-13</pitch-offset-deg>
-   </config>
-  </view>
+                                          Systems
 
-  <model>
-   <path>Aircraft/Boomy/Models/Boomy.xml</path>
-  </model>
 
-  <help>
-    <line>TODO: Write help instructions</line>
-  </help>
-  
-  <fdm>
-        <jsbsim>
-            <fcs>
-                <max-alpha-deg type="int">34</max-alpha-deg>
-                <max-alpha-default-deg type="int">34</max-alpha-default-deg>
-            </fcs>
-        </jsbsim>
-    </fdm>
+*************************************************************************-->
+		<systems>
+			<path>Aircraft/Boomy/Systems/systems.xml</path>
+			
+			<!--
+			<electrical>
+				<path>Aircraft/Generic/generic-electrical.xml</path> Temporary; see different electrical systems in c172p, c172r, JA37
+			</electrical>
+			-->
+			
+			<autopilot> <!-- Don't really need an autopilot, but just keeping it here for now -->
+			  <path>Aircraft/Generic/generic-autopilot.xml</path>
+			</autopilot>
+			<!-- Not sure what these property rules are for; may need to implement some, see c172p-set.xml
+            <property-rule n="101">
+                <path></path>
+            </property-rule>
+			-->
+		</systems>
+		
+		<!-- TODO: Write aircraft help -->
+		<help>
+			<line>Aircraft Help and Key Bindings</line>
+		</help>
+		
+		<!-- TODO: Actual Fuel Level -->
+		<consumables>
+		  <fuel>
+		   <tank n="0">
+			<level-gal_us type="double">20</level-gal_us>
+		   </tank>
+		  </fuel>
+		 </consumables>
+		
+		<!-- Copy of Generic Instrumentation file -->
+		<instrumentation>
+		<path>Aircraft/Boomy/Systems/instrumentation.xml</path>
+		</instrumentation>
+		
+		<!-- Stripped copy of ja37 Controls -->
+		<controls>
+			<engines>
+            <engine n="0">
+                <cutoff-augmentation type="bool">false</cutoff-augmentation>
+                <starter-cmd-hold type="bool">false</starter-cmd-hold>
+                <starter-cmd type="bool">false</starter-cmd>
+                <cutoff type="bool">true</cutoff>
+                <throttle-cutoff type="bool">true</throttle-cutoff>
+            </engine>
+			</engines>
+			<gear>
+            <brake-parking type="bool">false</brake-parking>
+            <launchbar>
+                <state type="string">Disengaged</state>
+            </launchbar>
+			</gear>
+			<electric>
+            <engine n="0">
+                <generator type="bool">false</generator>
+            </engine>
+            <main type="bool">false</main>
+            <battery type="bool">false</battery>
+			</electric>
+			<fuel>
+            <pneumatic-flow type="bool">true</pneumatic-flow>            <!-- on/off -->
+            <hydraulic-pump type="int">2</hydraulic-pump>            <!-- off/high/low -->
+            <electric-pump type="bool">true</electric-pump>            <!-- on/off -->
+            <xtank type="bool">true</xtank>            <!-- on/off -->
+            <auto type="bool">true</auto>            <!-- on/off -->
+			</fuel>
+			<flight>
+            <trim-reset type="bool">false</trim-reset>
+            <trim-yaw type="int">0</trim-yaw>
+            <rudder-trim type="double">0.0</rudder-trim>
+            <elevator-ap type="double">0.0</elevator-ap>
+            <aileron-ap type="double">0.0</aileron-ap>
+			</flight>
+			<oxygen type="bool">false</oxygen>
+			<altimeter-radar type="bool">false</altimeter-radar>
+			</controls>
 
- </sim>
-
- <consumables>
-  <fuel>
-   <tank n="0">
-    <level-gal_us>20</level-gal_us>
-   </tank>
-  </fuel>
- </consumables>
-
- <instrumentation>
-  <attitude-indicator>
-   <config>
-    <tumble-flag archive="y" type="bool">true</tumble-flag>
-   </config>
-  </attitude-indicator>
- </instrumentation>
-
- <controls>
-  <engines>
-   <engine n="0">
-    <magnetos>3</magnetos>
-   </engine>
-  </engines>
- </controls>
-
- <engines>
-  <engine>
-   <rpm type="double">700</rpm>
-  </engine>
- </engines>
-  
- <nasal>
-  <electrical>
-   <file>Aircraft/Boomy/Boomy-electrical.nas</file>
-  </electrical>
- </nasal>
-
+		<!-- Stripped copy of ja37 engine -->
+		<engines>
+        <engine n="0">
+            <nozzle-pos-norm type="double">0</nozzle-pos-norm>
+            <fire>
+                <serviceable type="bool">true</serviceable>
+            </fire>
+            <afterburner>
+                <serviceable type="bool">true</serviceable>
+            </afterburner>
+            <egt-degf type="double">0</egt-degf>
+            <oil-pressure-psi type="double">0</oil-pressure-psi>
+            <running type="bool">true</running>
+		</engine>
+		</engines>
+		
+				<!-- Stripped copy of ja37 rotors -->
+		<rotors>
+        <main>
+            <rpm alias="/engines/engine/nozzle-pos-norm"/>
+            <blade n="0">
+                <flap-deg type="double">0</flap-deg>
+                <position-deg alias="/gear/gear[0]/rollspeed-ms"/>
+            </blade>
+            <blade n="1">
+                <flap-deg type="double">0</flap-deg>
+                <position-deg alias="/gear/gear[1]/rollspeed-ms"/>
+            </blade>
+            <blade n="2">
+                <flap-deg type="double">0</flap-deg>
+                <position-deg alias="/gear/gear[2]/rollspeed-ms"/>
+            </blade>
+        </main>
+        <!-- What is this? The vertical stabilizer? -->
+		<tail>
+            <rpm alias="/orientation/alpha-deg"/>
+            <!-- for future MP transmit
+            <blade n="0">
+                <position-deg type="double">0</position-deg>
+            </blade>
+            <blade n="1">
+                <position-deg type="double">0</position-deg>
+            </blade>-->
+        </tail>
+		</rotors>
+		
+		<!-- Stripped copy of ja37 Inputs -->
+		<input include="Systems/input.xml"/>
+		
+		<!-- Stripped copy of c172p Gear -->
+		<gear>
+        <gear n="0">
+            <tyre-smoke type="int">0</tyre-smoke>
+            <sprayspeed-ms type="double">0</sprayspeed-ms>
+            <spray-density type="double">0</spray-density>
+        </gear>
+        <gear n="1">
+            <tyre-smoke type="int">0</tyre-smoke>
+            <sprayspeed-ms type="double">0</sprayspeed-ms>
+            <spray-density type="double">0</spray-density>
+        </gear>
+        <gear n="2">
+            <tyre-smoke type="int">0</tyre-smoke>
+            <sprayspeed-ms type="double">0</sprayspeed-ms>
+            <spray-density type="double">0</spray-density>
+        </gear>
+		</gear>
+		
+	</sim>
 </PropertyList>
+
+
+
+

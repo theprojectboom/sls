@@ -2,9 +2,10 @@
 
 <PropertyList>
 
+<!-- Copy of either c172r model .xml file -->
  <path>Boomy.ac</path>
  <offsets>  
-    <heading-deg>180</heading-deg>
+    <heading-deg>0</heading-deg>
     <z-m>0</z-m>
   </offsets>
 
