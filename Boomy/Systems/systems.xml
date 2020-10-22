@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	
+	<electrical>
+		<name>electrical</name>
+		<number>0</number>
+		<path>Aircraft/Generic/generic-electrical.xml</path> <!-- Temporary; see different electrical systems in c172p, c172r, JA37 -->
+	</electrical>
+
+	<pitot>
+		<name>pitot</name>
+		<number>0</number>
+		<stall-deg>60</stall-deg>
+	</pitot>
+	<static>
+		<name>static</name>
+		<number>0</number>
+		<tau>1</tau>
+		<type>0</type>
+	</static>
+
+	<vacuum>
+	<name>vacuum</name>
+	<number>0</number>
+	<rpm>/engines/engine[0]/rpm</rpm>
+	<scale>1.0</scale>
+	</vacuum>
+
+</PropertyList>

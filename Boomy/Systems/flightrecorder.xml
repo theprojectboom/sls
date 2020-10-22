@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copy of Generic Flight Recorder with one engine, one fuel tank, and 3 retractable gears -->
+<PropertyList>
+    <name type="string">Boomy Flight Recorder</name>
+    <signals include="/Aircraft/Generic/flightrecorder/components/environment.xml"/>
+    <signals include="/Aircraft/Generic/flightrecorder/components/position.xml"/>
+    <signals include="/Aircraft/Generic/flightrecorder/components/controls.xml"/>
+    <signals include="/Aircraft/Generic/flightrecorder/components/surfaces.xml"/>
+    <signals include="/Aircraft/Generic/flightrecorder/components/engine-jet.xml" />
+    <signals include="/Aircraft/Generic/flightrecorder/components/faults-engines.xml" />
+    <signals include="/Aircraft/Generic/flightrecorder/components/tanks.xml" />
+</PropertyList>

@@ -1,0 +1,341 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+	<mice n="0">
+		<mouse n="0">
+			<mode n="0">
+				<button n="3">
+					<binding n="0">
+						<script></script>
+					</binding>
+					<binding n="1">
+						<condition>
+							<and>
+								<property>/devices/status/mice/mouse[0]/button[2]</property>
+								<not><property>/sim/mouse/right-button-mode-cycle-enabled</property></not>
+							</and>
+						</condition>
+						<command>nasal</command>
+						<script>Boomy.fovZoom(-1);</script>
+					</binding>
+				</button>
+				<button n="4">
+					<binding n="0">
+						<script></script>
+					</binding>
+					<binding n="1">
+						<condition>
+							<and>
+								<property>/devices/status/mice/mouse[0]/button[2]</property>
+								<not><property>/sim/mouse/right-button-mode-cycle-enabled</property></not>
+							</and>
+						</condition>
+						<command>nasal</command>
+						<script>Boomy.fovZoom(1);</script>
+					</binding>
+				</button>
+			</mode>
+		</mouse>
+	</mice>
+    <keyboard n="0">
+		<key n="24">
+			<name>Ctrl-x</name>
+			<desc>Reset zoom to default</desc>
+			<binding>
+				<command>nasal</command>
+				<script>Boomy.fovZoom(0);</script>
+			</binding>
+		</key>
+		<key n="88">
+			<name>X</name>
+			<desc>Increase field of view</desc>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>Boomy.fovZoom(1);</script>
+			</binding>
+		</key>
+		<key n="120">
+			<name>x</name>
+			<desc>Decrease field of view</desc>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>Boomy.fovZoom(-1);</script>
+			</binding>
+		</key>	
+        <key n="66">
+            <name>B</name>
+            <desc>Toggle parking brake on or off</desc>
+            <binding>
+                <command>nasal</command>
+                <script>Boomy.applyParkingBrake(1)</script>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>nasal</command>
+                    <script>Boomy.applyParkingBrake(0)</script>
+                </binding>
+            </mod-up>
+        </key>
+        <key n="115">
+            <name>s</name>
+            <desc>Start engine</desc>
+            <binding>
+                <command>nasal</command>
+                <script>Boomy.autostarttimer();</script>
+            </binding>
+            <mod-up>
+                <!--just to overwrite default s key up -->
+                <binding>
+                    <command>nasal</command>
+                    <script>Boomy.noop()</script>
+                </binding>
+            </mod-up>
+        </key>
+        <key n="261">
+            <name>F5</name>
+            <desc>GCI pict</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>instrumentation/gci/picture</property>
+                <value>1</value>
+            </binding>
+        </key>
+        <key n="262">
+            <name>F6</name>
+            <desc>GCI dope</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>instrumentation/gci/bogeydope</property>
+                <value>1</value>
+            </binding>
+        </key>
+        <key n="263">
+            <name>F7</name>
+            <desc>GCI cutoff</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>instrumentation/gci/cutoff</property>
+                <value>1</value>
+            </binding>
+        </key>
+        <key n="77">
+            <name>M</name>
+            <desc>Toggle nose wheel steering</desc>
+            <binding>
+                <command>nasal</command>
+                <script>Boomy.toggleNosewheelSteer();</script>
+            </binding>
+        </key>
+        
+        <key n="117">
+            <name>u</name>
+            <desc>Afterburner Cutoff</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/engines/engine[0]/cutoff-augmentation</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>Boomy.click();</script>
+            </binding>
+        </key>
+                 
+		<key n="97">
+			<name>a</name>
+			<desc>Increase speed-up</desc>
+			<binding>
+				<command>nasal</command>
+				<script>controls.speedup(1);</script>
+			</binding>
+		</key>
+		<key n="65">
+			<name>A</name>
+			<desc>Decrease speed-up</desc>
+			<binding>
+				<command>nasal</command>
+				<script>controls.speedup(-1);</script>
+			</binding>
+		</key>
+         
+         <key n="44">
+          <mod-ctrl>
+            <name>,</name>
+            <desc>Next Waypoint</desc>
+            <binding>
+                <command>nasal</command>
+                <script>setprop("/autopilot/route-manager/input", "@next")</script>
+            </binding>
+          </mod-ctrl>
+         </key>
+         
+         <key n="46">
+          <mod-ctrl>
+            <name>.</name>
+            <desc>Previous Waypoint</desc>
+            <binding>
+                <command>nasal</command>
+                <script>setprop("/autopilot/route-manager/input", "@previous")</script>
+            </binding>
+          </mod-ctrl>
+         </key>
+         
+         <key n="92">
+            <name>\</name>
+            <desc>DME</desc>
+             <binding>
+                <command>property-toggle</command>
+                <property>instrumentation/dme/switch-position</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>Boomy.click();</script>
+            </binding>
+         </key>
+
+         <key n="81">
+            <name>Q</name>
+            <desc>Reset view</desc>
+            <binding>
+                <command>nasal</command>
+                <script>Boomy.resetView();</script>
+            </binding>
+        </key>
+
+        <key n="17">
+            <name>CTRL-Q</name>
+            <desc>View head-down-displays</desc>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>Boomy.HDDView();</script>
+            </binding>
+        </key>
+
+        <key n="17">
+            <name>CTRL-SHIFT-Q</name>
+            <desc>View head-up-display</desc>
+            <repeatable>false</repeatable>
+            <mod-shift>
+                <binding>
+                    <command>nasal</command>
+                    <script>Boomy.HUDView();</script>
+                </binding>
+            </mod-shift>
+        </key>
+
+        <key n="356">
+            <name>Left</name>
+            <mod-ctrl>
+                <desc>Trim yaw (or adjust AP heading.)</desc>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/flight/trim-yaw</property>
+                    <value>-1</value>
+                </binding>
+                <mod-up>
+                    <binding>
+                        <command>property-assign</command>
+                        <property>controls/flight/trim-yaw</property>
+                        <value>0</value>
+                    </binding>
+                </mod-up>
+            </mod-ctrl>
+        </key>
+
+        <key n="358">
+            <name>Right</name>
+            <mod-ctrl>
+                <desc>Trim yaw (or adjust AP heading.)</desc>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/flight/trim-yaw</property>
+                    <value>1</value>
+                </binding>
+                <mod-up>
+                    <binding>
+                        <command>property-assign</command>
+                        <property>controls/flight/trim-yaw</property>
+                        <value>0</value>
+                    </binding>
+                </mod-up>
+            </mod-ctrl>
+        </key>
+
+         <key n="18">
+              <name>Ctrl-R</name>
+              <desc>Activate the instant replay system</desc>
+              <binding>
+                    <command>nasal</command>
+                    <script>
+                            call(func{fgcommand('replay', props.Node.new({}))},nil,var err2 = []);
+                            call(func{fgcommand('dialog-show', props.Node.new({"dialog-name": "replay"}))},nil,var err2 = []);
+                    </script>
+                </binding>
+             </key>
+
+        <key n="19">
+          <name>Ctrl-S</name>
+          <desc>Toggle auto-throttle lock</desc>
+          <binding>
+            <command>property-toggle</command>
+            <property>/fdm/jsbsim/autoflight/athr-cmd</property>
+          </binding>
+        </key>
+        <key n="7">
+          <name>Ctrl-G</name>
+          <desc>Autothrottle quick-disengage</desc>
+          <binding>
+            <command>property-assign</command>
+            <property>/fdm/jsbsim/autoflight/athr-quick-disengage</property>
+            <value>1</value>
+          </binding>
+          <mod-up>
+            <binding>
+              <command>property-assign</command>
+              <property>/fdm/jsbsim/autoflight/athr-quick-disengage</property>
+              <value>0</value>
+            </binding>
+          </mod-up>
+          <binding>
+            <command>nasal</command>
+            <script>Boomy.click();</script>
+          </binding>
+        </key>
+
+        <key n="23">
+          <name>Ctrl-W</name>
+          <desc>Engage autopilot attitude hold</desc>
+          <binding>
+            <command>nasal</command>
+            <script>
+              autoflight.System.engageMode(2);
+              Boomy.click();
+            </script>
+          </binding>
+        </key>
+        <key n="1">
+          <name>Ctrl-A</name>
+          <desc>Engage autopilot altitude hold</desc>
+          <binding>
+            <command>nasal</command>
+            <script>
+              autoflight.System.engageMode(3);
+              Boomy.click();
+            </script>
+          </binding>
+        </key>
+        <key n="4">
+          <name>Ctrl-D</name>
+          <desc>Autopilot quick-disengage</desc>
+          <binding>
+            <command>nasal</command>
+            <script>
+              autoflight.System.apQuickDisengage();
+              Boomy.click();
+            </script>
+          </binding>
+        </key>
+    </keyboard>
+</PropertyList>
