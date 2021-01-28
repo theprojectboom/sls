@@ -43,8 +43,8 @@
 <!-- Craft Metrics -->
 <metrics>
 
-    <wingarea unit="IN2"> 165.6 </wingarea>
-    <wingspan unit="IN"> 30 </wingspan>
+    <wingarea unit="M2"> 0.290 </wingarea>
+    <wingspan unit="M"> 1.018 </wingspan>
     <chord unit="IN"> 17.09 </chord>
     <vtailarea unit="IN2"> 22.5 </vtailarea>
     <vtailarm unit="IN"> 18 </vtailarm>
@@ -52,17 +52,17 @@
 
 <!-- Mass Balance -->
 <mass_balance>
-  <ixx unit="SLUG*FT2"> 65 </ixx>
-  <iyy unit="SLUG*FT2"> 170 </iyy>
-  <izz unit="SLUG*FT2"> 120 </izz>
-  <ixy unit="SLUG*FT2"> 0 </ixy>
-  <ixz unit="SLUG*FT2"> 0 </ixz>
-  <iyz unit="SLUG*FT2"> 0 </iyz>
-  <emptywt unit="LBS"> 60 </emptywt>
-  <location name="CG" unit="IN">
-      <x> 33 </x>
-      <y> 0 </y>
-      <z> 3 </z>
+  <ixx unit="KG*M2"> 0.216 </ixx>
+  <iyy unit="KG*M2"> 2.136 </iyy>
+  <izz unit="KG*M2"> 2.294 </izz>
+  <ixy unit="KG*M2"> 0 </ixy>
+  <ixz unit="KG*M2"> 0 </ixz>
+  <iyz unit="KG*M2"> 0 </iyz>
+  <emptywt unit="KG"> 14.830 </emptywt>
+  <location name="CG" unit="M">
+      <x> 0.996 </x>
+      <y> 0.000 </y>
+      <z> 0.003 </z>
   </location>
 </mass_balance>
 
