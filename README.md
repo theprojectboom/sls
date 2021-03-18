@@ -106,3 +106,4 @@ You can stop, remove a container with
 * http://wiki.flightgear.org/Property_Tree/Sockets
 * For Px4, note, despite the docs mentioning 14540 ? or similiar, the port 18540 is in use instead
 * We still need to get px4 to used the external JSBSim FDM, using some scripts from https://github.com/px4/hil 
+* When doing `git status` note this stack overflow [article](https://stackoverflow.com/questions/4873980/git-diff-says-subproject-is-dirty) and use `git status --ignore-submodules=dirty` or use git version > 2.31 (Q1 2021).
